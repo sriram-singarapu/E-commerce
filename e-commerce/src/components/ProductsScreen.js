@@ -31,6 +31,7 @@ const ProductsScreen = () => {
         className="row-cols-2 g-5 "
         style={{
           width: "700px",
+          marginTop: "10px",
         }}
       >
         {productsArr.map((product, index) => (
@@ -44,7 +45,9 @@ const ProductsScreen = () => {
                     <Card.Text>Price: ${product.price}</Card.Text>
                   </div>
                   <div>
-                    <Button variant="warning">Add</Button>
+                    <Button variant="warning" size="sm">
+                      Add to cart
+                    </Button>
                   </div>
                 </div>
               </Card.Body>

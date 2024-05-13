@@ -1,19 +1,19 @@
 import React from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, Stack } from "react-bootstrap";
 
 const Navigation = () => {
   <React.Fragment>
-    <Navbar bg="dark" expand="sm" variant="dark">
-      <Container fluid>
-        <Navbar.Brand className="ms-auto me-0">React</Navbar.Brand>s
-        <Nav className="mx-auto">
+    <Navbar bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand>React</Navbar.Brand>s
+        {/* <Stack direction="horizontal"> */}
+        <Nav>
           <Nav.Link href="">Home</Nav.Link>
           <Nav.Link href="">Store</Nav.Link>
           <Nav.Link href="">About</Nav.Link>
         </Nav>
-        <Button variant="primary" className="me-auto ms-0">
-          Cart
-        </Button>
+        <Button variant="primary">Cart</Button>
+        {/* </Stack> */}
       </Container>
     </Navbar>
     <div style={{ backgroundColor: "grey", height: "70px", color: "white" }}>
