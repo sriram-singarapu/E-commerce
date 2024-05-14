@@ -6,6 +6,7 @@ import { Badge, Button, Container, Nav, Navbar } from "react-bootstrap";
 import { useCartContext } from "./Context-Api/Context";
 import About from "./components/About";
 import Footer from "./components/Footer";
+import Home from "./components/Home";
 
 const App = () => {
   const { state } = useCartContext(); // Access the context value
@@ -20,13 +21,13 @@ const App = () => {
               React
             </Navbar.Brand>
             <Nav className="col-md-center mx-auto">
-              <Nav.Link as={Link} to="/Home">
+              <Nav.Link as={Link} to="/home">
                 Home
               </Nav.Link>
               <Nav.Link as={Link} to="/">
                 Store
               </Nav.Link>
-              <Nav.Link as={Link} to="/About">
+              <Nav.Link as={Link} to="/about">
                 About
               </Nav.Link>
             </Nav>
@@ -36,24 +37,11 @@ const App = () => {
           </Container>
         </Navbar>
 
-        <div
-          style={{
-            backgroundColor: "grey",
-            height: "70px",
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          <h1>
-            <strong>The Generics</strong>
-          </h1>
-        </div>
-
         {/* Use Routes to define your application routes */}
         <Routes>
           <Route path="/" element={<ProductsScreen />} />
           <Route path="/about" element={<About />} />
-          {/* Add more routes as needed */}
+          <Route path="/home" element={<Home />} />
         </Routes>
 
         {/* Render Cart component */}

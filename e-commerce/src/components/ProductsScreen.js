@@ -13,43 +13,60 @@ const ProductsScreen = () => {
   };
 
   return (
-    <Container className="d-flex justify-content-center align-items-center">
-      <Row
-        className="row-cols-2 g-5"
+    <React.Fragment>
+      <div
         style={{
-          width: "700px",
-          height: "400px",
-          marginTop: "10px",
-          margin: "10px",
+          backgroundColor: "grey",
+          height: "70px",
+          color: "white",
+          textAlign: "center",
         }}
       >
-        {productsArr.map((product) => (
-          <Col key={product.id} className="mb-2">
-            <Card>
-              <Card.Title className="text-center">{product.title}</Card.Title>
-              <Card.Body>
-                <Card.Img variant="top" src={product.imageUrl} />
-                <div className="d-flex justify-content-between align-items-center mt-auto">
-                  <div>
-                    <Card.Text>Price: ₹{product.price}</Card.Text>
+        <h1>
+          <strong>The Generics</strong>
+        </h1>
+      </div>
+      <Container className="d-flex justify-content-center align-items-center">
+        <Row
+          className="row-cols-2 g-5"
+          style={{
+            width: "700px",
+            height: "400px",
+            marginTop: "10px",
+            margin: "10px",
+          }}
+        >
+          {productsArr.map((product) => (
+            <Col key={product.id} className="mb-2">
+              <Card>
+                <Card.Title className="text-center">{product.title}</Card.Title>
+                <Card.Body>
+                  <Card.Img variant="top" src={product.imageUrl} />
+                  <div className="d-flex justify-content-between align-items-center mt-auto">
+                    <div>
+                      <Card.Text>Price: ₹{product.price}</Card.Text>
+                    </div>
+                    <div>
+                      <Button
+                        variant="warning"
+                        size="sm"
+                        style={{ marginTop: "7px" }}
+                        onClick={() => addToCart(product)}
+                      >
+                        Add to cart
+                      </Button>
+                    </div>
                   </div>
-                  <div>
-                    <Button
-                      variant="warning"
-                      size="sm"
-                      style={{ marginTop: "7px" }}
-                      onClick={() => addToCart(product)}
-                    >
-                      Add to cart
-                    </Button>
-                  </div>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </Container>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+          <Card>
+            <Button> Go to Cart</Button>
+          </Card>
+        </Row>
+      </Container>
+    </React.Fragment>
   );
 };
 
