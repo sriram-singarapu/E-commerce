@@ -1,41 +1,25 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
-
-const productsArr = [
-  {
-    title: "Colors",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-  },
-  {
-    title: "Black and white Colors",
-    price: 50,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-  },
-  {
-    title: "Yellow and Black Colors",
-    price: 70,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-  },
-  {
-    title: "Blue Color",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
-];
+import { useCartContext } from "../Context-Api/Context";
 
 const ProductsScreen = () => {
+  const {
+    dispatch,
+    state: { productsArr },
+  } = useCartContext();
+
+  const addToCart = (product) => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
+
   return (
-    <Container className="d-flex justify-content-center align-items-center  ">
+    <Container className="d-flex justify-content-center align-items-center">
       <Row
-        className="row-cols-2 g-5 "
-        style={{
-          width: "700px",
-          marginTop: "10px",
-        }}
+        className="row-cols-2 g-5"
+        style={{ width: "700px", marginTop: "10px", margin: "10px" }}
       >
-        {productsArr.map((product, index) => (
-          <Col key={index} className="mb-2">
+        {productsArr.map((product) => (
+          <Col key={product.id} className="mb-2">
             <Card>
               <Card.Title className="text-center">{product.title}</Card.Title>
               <Card.Body>
@@ -45,7 +29,12 @@ const ProductsScreen = () => {
                     <Card.Text>Price: ${product.price}</Card.Text>
                   </div>
                   <div>
-                    <Button variant="warning" size="sm">
+                    <Button
+                      variant="warning"
+                      size="sm"
+                      style={{ marginTop: "7px" }}
+                      onClick={() => addToCart(product)}
+                    >
                       Add to cart
                     </Button>
                   </div>

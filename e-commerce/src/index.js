@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { ContextProvider } from "./Context-Api/Context";
+
 <script
   src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"
   crossorigin
@@ -12,7 +14,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <ContextProvider>
+      <App />
+    </ContextProvider>
   </React.StrictMode>
 );
 

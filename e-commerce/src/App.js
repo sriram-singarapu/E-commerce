@@ -1,10 +1,15 @@
+// App.js
+
 import React, { useState } from "react";
 import ProductsScreen from "./components/ProductsScreen";
 import Cart from "./components/Cart";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Badge, Button, Container, Nav, Navbar } from "react-bootstrap";
+import { useCartContext } from "./Context-Api/Context";
 
 const App = () => {
   const [showCart, setShowCart] = useState(false);
+  const { state } = useCartContext(); // Access the context value
+  console.log(state.cart); // Check if state.cart is accessible
 
   return (
     <React.Fragment>
@@ -17,7 +22,7 @@ const App = () => {
             <Nav.Link href="#">About</Nav.Link>
           </Nav>
           <Button variant="primary" onClick={() => setShowCart(true)}>
-            Cart
+            Cart <Badge bg="secondary">{state.cart.length}</Badge>
           </Button>
         </Container>
       </Navbar>
