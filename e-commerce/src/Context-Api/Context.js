@@ -1,6 +1,4 @@
-// Context.js
-
-import { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import cartReducer from "./Reducer";
 
 // Create a context for the cart

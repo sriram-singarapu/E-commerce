@@ -16,7 +16,12 @@ const ProductsScreen = () => {
     <Container className="d-flex justify-content-center align-items-center">
       <Row
         className="row-cols-2 g-5"
-        style={{ width: "700px", marginTop: "10px", margin: "10px" }}
+        style={{
+          width: "700px",
+          height: "400px",
+          marginTop: "10px",
+          margin: "10px",
+        }}
       >
         {productsArr.map((product) => (
           <Col key={product.id} className="mb-2">
@@ -26,7 +31,7 @@ const ProductsScreen = () => {
                 <Card.Img variant="top" src={product.imageUrl} />
                 <div className="d-flex justify-content-between align-items-center mt-auto">
                   <div>
-                    <Card.Text>Price: ${product.price}</Card.Text>
+                    <Card.Text>Price: ₹{product.price}</Card.Text>
                   </div>
                   <div>
                     <Button

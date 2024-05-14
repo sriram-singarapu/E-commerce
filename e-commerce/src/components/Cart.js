@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Row, Col, Button, Form, Image } from "react-bootstrap";
-import "./Cart.css";
+
 import { useCartContext } from "../Context-Api/Context";
 
 const Cart = (props) => {
@@ -31,7 +31,9 @@ const Cart = (props) => {
         </Modal.Header>
         <Modal.Body>
           {cart.length === 0 ? (
-            <p>Your cart is empty.</p>
+            <p>
+              <strong>Your cart is empty</strong>
+            </p>
           ) : (
             <>
               {cart.map((product) => (
@@ -45,9 +47,9 @@ const Cart = (props) => {
                     />
                   </Col>
                   <Col>
-                    <p className="text-center">{product.title}</p>
+                    <strong className="text-center">{product.title}</strong>
                   </Col>
-                  <Col>${product.price}</Col>
+                  <Col>₹{product.price}</Col>
                   <Col>
                     <Form.Control
                       type="number"
@@ -77,8 +79,9 @@ const Cart = (props) => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <span>Total: ${total.toFixed(2)}</span>
-          <Button variant="secondary" onClick={() => props.setShow(false)}>
+          <strong>Total: ₹{total.toFixed(2)}</strong>
+
+          <Button variant="warning" onClick={() => props.setShow(false)}>
             Close
           </Button>
         </Modal.Footer>
