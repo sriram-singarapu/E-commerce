@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const Home_array = [
   {
@@ -55,6 +55,7 @@ const Home = () => {
           <strong>The Generics</strong>
         </h1>
         <Button variant="outline-info ">Get our latest Album</Button>
+      
         <Button
           style={{
             display: "block",
@@ -72,23 +73,34 @@ const Home = () => {
         </Button>
       </div>
 
-      <div>
-        <h1 style={{ textAlign: "center" }}>Tours</h1>
-
-        {Home_array.map((item) => (
-          <Table>
-            <tbody>
-              <tr>
-                <td>{item.date}</td>
-                <td>{item.city}</td>
-                <td>{item.venue}</td>
-                <td>
-                  <Button>Buy Tickets</Button>
-                </td>
-              </tr>{" "}
-            </tbody>
-          </Table>
-        ))}
+      <h1 style={{ textAlign: "center" }}>Tours</h1>
+      <div style={{ boxSizing: "border-box" }}>
+        <ul
+          style={{
+            listStyle: "none",
+            padding: "10px",
+            marginLeft: "20%",
+            marginRight: "20%",
+            marginBottom: "10%",
+          }}
+        >
+          {Home_array.map((item, index) => (
+            <li
+              key={index}
+              style={{
+                padding: "10px",
+                display: "flex",
+                alignItems: "center",
+                borderBottom: "1px solid black",
+              }}
+            >
+              <div style={{ width: "12%" }}>{item.date}</div>
+              <div style={{ width: "25%" }}>{item.city}</div>
+              <div style={{ width: "50%" }}>{item.venue}</div>
+              <Button style={{ width: "20%" }}>Buy Tickets</Button>
+            </li>
+          ))}
+        </ul>
       </div>
     </React.Fragment>
   );

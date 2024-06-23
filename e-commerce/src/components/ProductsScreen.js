@@ -26,13 +26,17 @@ const ProductsScreen = () => {
           <strong>The Generics</strong>
         </h1>
       </div>
-      <Container className="d-flex justify-content-center align-items-center">
+      <Container
+        style={{ marginBottom: "40%" }}
+        className="d-flex justify-content-center align-items-center"
+      >
         <Row
           className="row-cols-2 g-5"
           style={{
             width: "700px",
             height: "400px",
             marginTop: "10px",
+
             margin: "10px",
           }}
         >
@@ -61,9 +65,6 @@ const ProductsScreen = () => {
               </Card>
             </Col>
           ))}
-          <Card>
-            <Button> Go to Cart</Button>
-          </Card>
         </Row>
       </Container>
     </React.Fragment>

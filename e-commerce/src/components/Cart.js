@@ -27,7 +27,9 @@ const Cart = (props) => {
     <div>
       <Modal show={props.show} onHide={() => props.setShow(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Cart</Modal.Title>
+          <Modal.Title>
+            <h1>Cart</h1>
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {cart.length === 0 ? (
@@ -36,22 +38,45 @@ const Cart = (props) => {
             </p>
           ) : (
             <>
+              <Row
+                style={{
+                  borderBottom: "1px solid black",
+                  marginBottom: "15px",
+                }}
+              >
+                <div style={{ width: "250px", display: "inline-block" }}>
+                  {" "}
+                  <Col>
+                    <h3>Item</h3>
+                  </Col>
+                </div>
+
+                <Col>
+                  <h3>Price</h3>
+                </Col>
+              </Row>
               {cart.map((product) => (
                 <Row key={product.id}>
-                  <Col>
-                    <Image
-                      src={product.imageUrl}
-                      alt={product.title}
-                      className="img-fluid rounded-3"
-                      style={{ margin: "3px", padding: "2px" }}
-                    />
-                  </Col>
-                  <Col>
-                    <strong className="text-center">{product.title}</strong>
-                  </Col>
-                  <Col>₹{product.price}</Col>
+                  <div style={{ width: "250px", display: "inline-block" }}>
+                    <Row>
+                      <Col>
+                        <Image
+                          src={product.imageUrl}
+                          alt={product.title}
+                          className="img-fluid rounded-3"
+                          style={{ margin: "3px", padding: "2px" }}
+                        />
+                      </Col>
+                      <Col>
+                        <strong className="text-center">{product.title}</strong>
+                      </Col>
+                    </Row>
+                  </div>
+
+                  <Col style={{ width: "30px" }}>₹{product.price}</Col>
                   <Col>
                     <Form.Control
+                      style={{ width: "50px" }}
                       type="number"
                       value={product.quantity}
                       onChange={(e) =>
@@ -79,7 +104,9 @@ const Cart = (props) => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <strong>Total: ₹{total.toFixed(2)}</strong>
+          <strong style={{ margin: "20px", marginRight: "90px" }}>
+            Total: ₹{total.toFixed(2)}
+          </strong>
 
           <Button variant="warning" onClick={() => props.setShow(false)}>
             Close
