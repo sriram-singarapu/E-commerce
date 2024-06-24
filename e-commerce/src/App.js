@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import ProductsScreen from "./components/ProductsScreen";
+import ProductDetail from "./components/ProductDetail"; // Import the new component
 import Cart from "./components/Cart";
 import { Badge, Button, Container, Nav, Navbar } from "react-bootstrap";
 import { useCartContext } from "./Context-Api/Context";
@@ -10,7 +11,7 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 
 const App = () => {
-  const { state } = useCartContext(); // Access the context value
+  const { state } = useCartContext();
   const [showCart, setShowCart] = useState(false);
 
   return (
@@ -27,7 +28,7 @@ const App = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className=" mx-auto">
+            <Nav className="mx-auto">
               <Nav.Link as={Link} to="/home" className="mx-4">
                 Home
               </Nav.Link>
@@ -48,15 +49,14 @@ const App = () => {
         </Container>
       </Navbar>
 
-      {/* Use Routes to define your application routes */}
       <Routes>
         <Route path="/" element={<ProductsScreen />} />
         <Route path="/about" element={<About />} />
         <Route path="/home" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/product/:id" element={<ProductDetail />} />{" "}
       </Routes>
 
-      {/* Render Cart component */}
       <Cart show={showCart} setShow={setShowCart} />
       <Footer />
     </React.Fragment>

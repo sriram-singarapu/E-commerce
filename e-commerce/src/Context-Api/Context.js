@@ -13,6 +13,8 @@ const ContextProvider = (props) => {
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+      additionalImages: ["url-to-image1", "url-to-image2"],
+      reviews: ["Great product!", "Loved it!"],
     },
     {
       id: 2,
@@ -20,6 +22,8 @@ const ContextProvider = (props) => {
       price: 50,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+      additionalImages: ["url-to-image1", "url-to-image2"],
+      reviews: ["Great product!", "Loved it!"],
     },
     {
       id: 3,
@@ -27,6 +31,8 @@ const ContextProvider = (props) => {
       price: 70,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+      additionalImages: ["url-to-image1", "url-to-image2"],
+      reviews: ["Great product!", "Loved it!"],
     },
     {
       id: 4,
@@ -34,6 +40,8 @@ const ContextProvider = (props) => {
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+      additionalImages: ["url-to-image1", "url-to-image2"],
+      reviews: ["Great product!", "Loved it!"],
     },
   ];
 

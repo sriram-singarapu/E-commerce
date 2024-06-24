@@ -1,12 +1,14 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useCartContext } from "../Context-Api/Context";
+import { useNavigate } from "react-router-dom";
 
 const ProductsScreen = () => {
   const {
     dispatch,
     state: { productsArr },
   } = useCartContext();
+  const navigate = useNavigate();
 
   const addToCart = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
@@ -36,13 +38,15 @@ const ProductsScreen = () => {
             width: "700px",
             height: "400px",
             marginTop: "10px",
-
             margin: "10px",
           }}
         >
           {productsArr.map((product) => (
             <Col key={product.id} className="mb-2">
-              <Card>
+              <Card
+                onClick={() => navigate(`/product/${product.id}`)}
+                style={{ cursor: "pointer" }}
+              >
                 <Card.Title className="text-center">{product.title}</Card.Title>
                 <Card.Body>
                   <Card.Img variant="top" src={product.imageUrl} />
@@ -55,7 +59,10 @@ const ProductsScreen = () => {
                         variant="warning"
                         size="sm"
                         style={{ marginTop: "7px" }}
-                        onClick={() => addToCart(product)}
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent the card click event
+                          addToCart(product);
+                        }}
                       >
                         Add to cart
                       </Button>
