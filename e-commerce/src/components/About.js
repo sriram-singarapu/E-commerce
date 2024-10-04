@@ -31,7 +31,7 @@ const About = () => {
             src="https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png"
             alt="project"
           ></img>
-          <p>
+          <p style={{ marginBottom: "10%" }}>
             Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of
             sorrows, hates no prosecutors will unfold in the enduring of which
             were born in it? Often leads smallest mistake some pain main
